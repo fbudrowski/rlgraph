@@ -79,7 +79,7 @@ class RayExecutor(object):
         if 'redis_address' not in self.executor_spec:
             self.logger.warning("Warning: No redis address provided, starting local redis server.")
         ray.init(
-            redis_address=self.executor_spec.get('redis_address', None),
+            address=self.executor_spec.get('redis_address', None),
             num_cpus=self.executor_spec.get('num_cpus', None),
             num_gpus=self.executor_spec.get('num_gpus', None)
         )

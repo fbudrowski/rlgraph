@@ -225,7 +225,7 @@ class ApexExecutor(RayExecutor):
             if self.discard_queued_samples and self.update_worker.input_queue.full():
                 discarded += 1
             else:
-                sampled_batch = ray.get(object_ids=replay_remote_task)
+                sampled_batch = ray.get(object_refs=replay_remote_task)
                 # Pass to the agent doing the actual updates.
                 # The ray worker is passed along because we need to update its priorities later in the subsequent
                 # task (see loop below).

@@ -426,7 +426,7 @@ class RayValueWorker(RayActor):
             )
         )
 
-    @ray.method(num_return_vals=2)
+    @ray.method(num_returns=2)
     def execute_and_get_with_count(self):
         sample = self.execute_and_get_timesteps(num_timesteps=self.worker_sample_size)
 
